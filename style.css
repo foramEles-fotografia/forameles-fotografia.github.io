@@ -2242,3 +2242,253 @@ body {
     border-radius: 18px !important;
   }
 }
+
+
+/* ==========================================================================
+   PÁGINA INICIAL ESTILO LINK NA BIO / TRACKTO (index.html)
+   ========================================================================== */
+.bio-body {
+  background-color: var(--bg-white);
+  overflow-x: hidden;
+}
+
+.bio-page {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1.25rem;
+  overflow: hidden;
+  background: transparent;
+}
+
+.bio-page .hero-canvas-wrapper {
+  height: 100%;
+  mask-image: none;
+  -webkit-mask-image: none;
+}
+
+.bio-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+}
+
+.bio-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.bio-logo {
+  height: 46px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 0.35rem;
+}
+
+.bio-tagline {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: #2563EB;
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  padding: 0.32rem 0.9rem;
+  border-radius: 999px;
+}
+
+.bio-description {
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--slate-700);
+  max-width: 360px;
+  margin-top: 0.25rem;
+}
+
+.bio-links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+.bio-link-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border-radius: 20px;
+  text-decoration: none;
+  text-align: left;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.22s ease, border-color 0.22s ease;
+  cursor: pointer;
+}
+
+.bio-btn-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bio-btn-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.bio-btn-text strong {
+  font-size: 1.04rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.bio-btn-text small {
+  font-size: 0.82rem;
+  font-weight: 400;
+  line-height: 1.35;
+  margin-top: 0.12rem;
+}
+
+.bio-btn-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  opacity: 0.72;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* 1º Botão: WhatsApp (Destaque Principal Azul do Ponto) */
+.bio-btn-whatsapp {
+  background-color: #2563EB;
+  color: #ffffff;
+  border: 1.5px solid #2563EB;
+  box-shadow: 0 10px 26px -4px rgba(37, 99, 235, 0.36);
+}
+
+.bio-btn-whatsapp .bio-btn-icon {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}
+
+.bio-btn-whatsapp .bio-btn-text small {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* 2º e 3º Botões: Site e Instagram (Estilo Trackto / Glass Branco Limpo) */
+.bio-btn-site,
+.bio-btn-instagram {
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: var(--slate-800);
+  border: 1.5px solid rgba(37, 99, 235, 0.22);
+  box-shadow: 0 8px 24px -6px rgba(30, 38, 54, 0.08);
+}
+
+.bio-btn-site .bio-btn-icon,
+.bio-btn-instagram .bio-btn-icon {
+  background: rgba(37, 99, 235, 0.09);
+  color: #2563EB;
+}
+
+.bio-btn-site .bio-btn-text small,
+.bio-btn-instagram .bio-btn-text small {
+  color: var(--slate-500);
+}
+
+.bio-btn-site .bio-btn-arrow,
+.bio-btn-instagram .bio-btn-arrow {
+  color: #2563EB;
+}
+
+@media (hover: hover) {
+  .bio-link-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .bio-link-btn:hover .bio-btn-arrow {
+    transform: translateX(3px);
+    opacity: 1;
+  }
+
+  .bio-btn-whatsapp:hover {
+    background-color: #1d4ed8;
+    border-color: #1d4ed8;
+    box-shadow: 0 14px 30px -4px rgba(37, 99, 235, 0.46);
+  }
+
+  .bio-btn-site:hover,
+  .bio-btn-instagram:hover {
+    background: #ffffff;
+    border-color: #2563EB;
+    box-shadow: 0 12px 28px -6px rgba(37, 99, 235, 0.16);
+  }
+}
+
+.bio-link-btn:active {
+  transform: scale(0.985);
+}
+
+.bio-footer {
+  margin-top: 0.4rem;
+  font-size: 0.78rem;
+  color: var(--slate-500);
+}
+
+@media (max-width: 480px) {
+  .bio-page {
+    padding: 2rem 1.1rem;
+  }
+
+  .bio-container {
+    gap: 1.65rem;
+  }
+
+  .bio-logo {
+    height: 40px;
+  }
+
+  .bio-description {
+    font-size: 0.92rem;
+  }
+
+  .bio-link-btn {
+    padding: 0.92rem 1.1rem;
+    border-radius: 18px;
+  }
+
+  .bio-btn-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+  }
+
+  .bio-btn-text strong {
+    font-size: 0.98rem;
+  }
+
+  .bio-btn-text small {
+    font-size: 0.78rem;
+  }
+}

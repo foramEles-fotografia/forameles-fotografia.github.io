@@ -539,13 +539,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.getElementById('nav-links');
 
   let isScrolled = false;
-  window.addEventListener('scroll', () => {
-    const shouldBeScrolled = (window.scrollY || window.pageYOffset) > 36;
-    if (shouldBeScrolled !== isScrolled) {
-      isScrolled = shouldBeScrolled;
-      navbar.classList.toggle('scrolled', isScrolled);
-    }
-  }, { passive: true });
+  if (navbar) {
+    window.addEventListener('scroll', () => {
+      const shouldBeScrolled = (window.scrollY || window.pageYOffset) > 36;
+      if (shouldBeScrolled !== isScrolled) {
+        isScrolled = shouldBeScrolled;
+        navbar.classList.toggle('scrolled', isScrolled);
+      }
+    }, { passive: true });
+  }
 
   if (menuToggle && navLinks) {
     menuToggle.addEventListener('click', () => {
@@ -802,7 +804,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (modalBackdrop) modalBackdrop.addEventListener('click', closeAlbum);
 
   window.addEventListener('keydown', (e) => {
-    if (!modal.classList.contains('open')) return;
+    if (!modal || !modal.classList.contains('open')) return;
     if (e.key === 'Escape') closeAlbum();
     if (e.key === 'ArrowLeft' && prevBtn) prevBtn.click();
     if (e.key === 'ArrowRight' && nextBtn) nextBtn.click();

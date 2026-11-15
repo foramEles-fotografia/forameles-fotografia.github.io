@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>FORAM Eles. | Fotografia &amp; Audiovisual</title>
+  <meta name="description" content="FORAM Eles — Fotografia e audiovisual por Luiz e João Arthur. Olhar autêntico, direção natural e entrega ágil para especialistas, clínicas e empresas." />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- CookieConsent v3 (LGPD) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.1/dist/cookieconsent.css" />
+  <link rel="stylesheet" href="style.css?v=20261115-v16" />
+</head>
+<body>
+
+  <!-- Header / Navbar com Desfoque (Blur) -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#inicio" class="brand-logo" aria-label="FORAM Eles - Início">
+        <img src="assets/logo-foram-eles-crop.png" alt="FORAM Eles." class="logo-img" decoding="async" />
+      </a>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="#inicio" class="nav-link active">Início</a>
+        <a href="#destaque" class="nav-link">Apresentação</a>
+        <a href="#portfolio" class="nav-link">Trabalhos</a>
+        <!-- Aba de Serviços temporariamente oculta enquanto alinhamos os ajustes:
+        <a href="#servicos" class="nav-link">Serviços</a>
+        -->
+        <a href="#sobre" class="nav-link">Quem Somos</a>
+        <a href="#diferenciais" class="nav-link">Diferenciais</a>
+        <a href="#contato" class="nav-link nav-cta">Solicitar Orçamento</a>
+      </nav>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1º CONTAINER: CORES EM DEGRADÊ MAIS CONCENTRADAS E SE ESTENDENDO ATÉ O FINAL DO VÍDEO -->
+    <section class="container-hero" id="inicio">
+      <div class="hero-canvas-wrapper" aria-hidden="true">
+        <canvas id="breathing-canvas"></canvas>
+      </div>
+
+      <div class="hero-content reveal visible">
+        <h1 class="hero-title">
+          <span class="hero-title-line line-1">Imagens que valorizam</span>
+          <span class="hero-title-line line-2">marcas, pessoas e negócios!</span>
+        </h1>
+
+        <div class="hero-logo-wrap">
+          <img src="assets/logo-foram-eles-crop.png" alt="FORAM Eles." class="hero-main-logo" decoding="async" />
+        </div>
+
+        <div class="hero-subtitle">
+          <p class="hero-sub-desc">
+            Casamentos, aniversários, ensaios, eventos e trabalhos para empresas. Cada ocasião tem seu jeito próprio, e é exatamente isso que buscamos registrar em cada produção: imagens autênticas, espontâneas e com qualidade em cada detalhe.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2º CONTAINER: VÍDEO EXPANSIVO GRADUAL DESDE O PRIMEIRO SCROLL -->
+    <section class="video-scroll-track" id="destaque">
+      <div class="video-sticky-stage" id="video-sticky-stage">
+        <div class="video-expand-card" id="video-expand-card">
+          <!-- Começa pausado: só toca quando pelo menos 20% do vídeo aparece na tela -->
+          <video
+            id="showcase-video"
+            class="showcase-video"
+            poster="assets/video-poster.jpg"
+            muted
+            loop
+            playsinline
+            preload="metadata"
+          >
+            <source src="assets/video-foram-eles-mobile.mp4?v=20261114" type="video/mp4" media="(max-width: 768px)" />
+            <source src="assets/video-foram-eles.mp4?v=20261114" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3º CONTAINER: TRABALHOS REALIZADOS (CARDS ESTILO CARTAS APPLE) -->
+    <section class="container-portfolio section-padding" id="portfolio">
+      <div class="section-inner">
+        <div class="portfolio-header reveal">
+          <div>
+            <h2 class="section-title">
+              Profissionais e pessoas<br />
+              fotografadas por <img src="assets/logo-eles-crop.png" alt="Eles." class="inline-logo-title" loading="lazy" decoding="async" />
+            </h2>
+            <p class="section-desc">
+              Clique nos cards para conferir um pouco de cada ensaio.
+            </p>
+          </div>
+          <div class="portfolio-filters" role="tablist">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="especialistas">Especialistas</button>
+            <button class="filter-btn" data-filter="profissionais">Profissionais</button>
+            <button class="filter-btn" data-filter="institucional">Institucional</button>
+            <button class="filter-btn" data-filter="branding">Branding</button>
+          </div>
+        </div>
+
+        <div class="portfolio-grid reveal" id="portfolio-grid">
+          <!-- Card Stack 1: Dra. Joyce Menezes -->
+          <article class="apple-stack-item" data-category="especialistas" data-album="0" tabindex="0" role="button" aria-label="Abrir álbum Dra. Joyce Menezes">
+            <div class="apple-card-stack">
+              <div class="stack-layer layer-left">
+                <img src="assets/albuns/joyce/foto-01.jpg" alt="Dra. Joyce Menezes" loading="lazy" decoding="async" />
+              </div>
+              <div class="stack-layer layer-right">
+                <img src="assets/albuns/joyce/foto-03.jpg" alt="Harmonização Orofacial" loading="lazy" decoding="async" />
+              </div>
+              <div class="stack-layer layer-main">
+                <img src="assets/albuns/joyce/foto-06.jpg" alt="Dra. Joyce Menezes - Harmonização Orofacial" loading="lazy" decoding="async" />
+                <div class="card-main-overlay">
+                  <span class="item-cat">Harmonização Orofacial</span>
+                  <h3>Dra. Joyce Menezes</h3>
+                </div>
+              </div>
+            </div>
+            <div class="stack-meta">
+              <h4>Dra. Joyce Menezes</h4>
+              <p>Harmonização Orofacial</p>
+            </div>
+          </article>
+
+          <!-- Card Stack 2: Dra. Izabela Freitas -->
+          <article class="apple-stack-item" data-category="especialistas" data-album="1" tabindex="0" role="button" aria-label="Abrir álbum Dra. Izabela Freitas">
+            <div class="apple-card-stack">
+              <div class="stack-layer layer-left">
+                <img src="assets/albuns/izabela/foto-02.jpg" alt="Dra. Izabela Freitas em atendimento" loading="lazy" decoding="async" />
+              </div>
+              <div class="stack-layer layer-right">
+                <img src="assets/albuns/izabela/foto-03.jpg" alt="Invisalign Doctor" loading="lazy" decoding="async" />
+              </div>
+              <div class="stack-layer layer-main">
+                <img src="assets/albuns/izabela/foto-01.jpg" alt="Dra. Izabela Freitas - Invisalign Doctor" loading="lazy" decoding="async" />
+                <div class="card-main-overlay">
+                  <span class="item-cat">Invisalign Doctor</span>
+                  <h3>Dra. Izabela Freitas</h3>
+                </div>
+              </div>
+            </div>
+            <div class="stack-meta">
+              <h4>Dra. Izabela Freitas</h4>
+              <p>Invisalign Doctor</p>
+            </div>
+          </article>
+
+          <!-- Card Stack 3: Dra. Jéssica Cardoso -->
+          <article class="apple-stack-item" data-category="especialistas" data-album="2" tabindex="0" role="button" aria-label="Abrir álbum Dra. Jéssica Cardoso">
+            <div class="apple-card-stack">
+              <div class="stack-layer layer-left">
+                <img src="assets/albuns/jessica/foto-01.jpg" alt="Dra. Jéssica Cardoso consultório" loading="lazy" decoding="async" />
+              </div>
+              <div class="stack-layer layer-right">
+                <img src="assets/albuns/jessica/foto-02.jpg" alt="Dra. Jéssica Cardoso atendimento" loading="lazy" decoding="async" />
+              </div>
+              <div class="stack-layer layer-main">
+                <img src="assets/albuns/jessica/jessica-3.jpg" alt="Dra. Jéssica Cardoso - Odontologia e Estética" loading="lazy" decoding="async" />
+                <div class="card-main-overlay">
+                  <span class="item-cat">Odontologia &amp; Estética</span>
+                  <h3>Dra. Jéssica Cardoso</h3>
+                </div>
+              </div>
+            </div>
+            <div class="stack-meta">
+              <h4>Dra. Jéssica Cardoso</h4>
+              <p>Odontologia &amp; Estética</p>
+            </div>
+          </article>
+
+          <!-- Card Stack 4: Profissionais -->
+          <article class="apple-stack-item" data-category="profissionais" data-album="3" tabindex="0" role="button" aria-label="Abrir álbum Profissionais">
+            <div class="apple-card-stack">
+              <div class="stack-layer layer-left">
+                <img src="assets/albuns/profissionais/foto-02.jpg" alt="Profissional em ação" loading="lazy" decoding="async" />
+              </div>
+              <div class="stack-layer layer-right">
+                <img src="assets/albuns/profissionais/foto-04.jpg" alt="Retrato profissional masculino" loading="lazy" decoding="async" />
+              </div>
+              <div class="stack-layer layer-main">
+                <img src="assets/albuns/profissionais/foto-01.jpg" alt="Profissionais - Retratos e Atendimento" loading="lazy" decoding="async" />
+                <div class="card-main-overlay">
+                  <span class="item-cat">Retratos &amp; Atendimento</span>
+                  <h3>Profissionais</h3>
+                </div>
+              </div>
+            </div>
+            <div class="stack-meta">
+              <h4>Profissionais</h4>
+              <p>Retratos &amp; Atendimento Humanizado</p>
+            </div>
+          </article>
+
+          <!-- Card Stack 5: Institucional -->
+          <article class="apple-stack-item" data-category="institucional" data-album="4" tabindex="0" role="button" aria-label="Abrir álbum Institucional">
+            <div class="apple-card-stack">
+              <div class="stack-layer layer-left">
+                <img src="assets/albuns/institucional/foto-01.jpg" alt="Recepção e clínica" loading="lazy" decoding="async" />
+              </div>
+              <div class="stack-layer layer-right">
+                <img src="assets/albuns/institucional/foto-04.jpg" alt="Equipe institucional" loading="lazy" decoding="async" />
+              </div>
+              <div class="stack-layer layer-main">
+                <img src="assets/albuns/institucional/foto-02.jpg" alt="Institucional - Estrutura e Espaços" loading="lazy" decoding="async" />
+                <div class="card-main-overlay">
+                  <span class="item-cat">Estrutura, Espaços &amp; Equipe</span>
+                  <h3>Institucional</h3>
+                </div>
+              </div>
+            </div>
+            <div class="stack-meta">
+              <h4>Institucional</h4>
+              <p>Clínica, Ambientes &amp; Estrutura</p>
+            </div>
+          </article>
+
+          <!-- Card Stack 6: Branding & Detalhes -->
+          <article class="apple-stack-item" data-category="branding" data-album="5" tabindex="0" role="button" aria-label="Abrir álbum Branding e Detalhes">
+            <div class="apple-card-stack">
+              <div class="stack-layer layer-left">
+                <img src="assets/albuns/branding/foto-01.jpg" alt="Detalhe de produto e marca" loading="lazy" decoding="async" />
+              </div>
+              <div class="stack-layer layer-right">
+                <img src="assets/albuns/branding/foto-07.jpg" alt="Textura e composição" loading="lazy" decoding="async" />
+              </div>
+              <div class="stack-layer layer-main">
+                <img src="assets/albuns/branding/foto-08.jpg" alt="Branding &amp; Detalhes" loading="lazy" decoding="async" />
+                <div class="card-main-overlay">
+                  <span class="item-cat">Texturas, Produtos &amp; Essência</span>
+                  <h3>Branding &amp; Detalhes</h3>
+                </div>
+              </div>
+            </div>
+            <div class="stack-meta">
+              <h4>Branding &amp; Detalhes</h4>
+              <p>Identidade Visual &amp; Elementos da Marca</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTAINER DE SERVIÇOS TEMPORARIAMENTE DESATIVADO (PRESERVADO PARA CORREÇÃO POSTERIOR) -->
+    <section class="container-services section-padding" id="servicos" style="display: none;" aria-hidden="true">
+      <div class="section-inner">
+        <!-- CABEÇALHO DA SEÇÃO -->
+        <div class="services-header reveal">
+          <span class="section-eyebrow">FORAM Eles. — FOTOGRAFIA • VÍDEO • PRODUÇÃO VISUAL</span>
+          <h2 class="section-title">
+            Soluções Visuais para Empresas, Profissionais e Momentos Importantes
+          </h2>
+          <p class="section-desc">
+            Atuamos em duas frentes complementares: produzimos imagens que valorizam negócios, estruturas e carreiras, e registramos histórias, celebrações e momentos pessoais com sensibilidade e apuro estético. Nossa estrutura é móvel: levamos câmera, lentes, iluminação e áudio até você — seja em uma clínica, empresa, casamento ou locação externa.
+          </p>
+        </div>
+
+        <!-- BLOCO A — MERCADO EMPRESARIAL -->
+        <div class="services-block reveal">
+          <div class="services-block-header">
+            <span class="block-badge badge-blue">Mercado Empresarial</span>
+            <p class="block-subtitle">
+              Para empresas e profissionais: imagens que valorizam o negócio, a estrutura, os serviços e a imagem profissional.
+            </p>
+          </div>
+
+          <div class="services-grid">
+            <!-- CARD 01 -->
+            <article class="service-card">
+              <div class="service-card-top">
+                <span class="service-tag">Posicionamento &amp; Rotina Real</span>
+                <div class="service-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </div>
+              </div>
+              <h3 class="service-title">Fotografia Corporativa &amp; Profissionais</h3>
+              <p class="service-description">
+                Retratos e registros da rotina de médicos, dentistas, advogados, empresários e especialistas. Levamos nossa estrutura de iluminação até o seu local de trabalho para documentar sua atuação com naturalidade.
+              </p>
+              <ul class="service-bullets">
+                <li>Retratos profissionais no próprio consultório, clínica ou empresa</li>
+                <li>Profissionais realizando atendimentos e procedimentos (respeitando as normas e autorizações aplicáveis)</li>
+                <li>Registros da interação real com pacientes e clientes</li>
+                <li>Equipes trabalhando e bastidores da rotina profissional</li>
+              </ul>
+            </article>
+
+            <!-- CARD 02 -->
+            <article class="service-card">
+              <div class="service-card-top">
+                <span class="service-tag">Estrutura &amp; Negócios</span>
+                <div class="service-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                </div>
+              </div>
+              <h3 class="service-title">Fotografia de Ambientes, Marcas &amp; Produtos</h3>
+              <p class="service-description">
+                Fotografias planejadas para apresentar o espaço físico da sua empresa, destacar seus produtos e traduzir a organização do seu negócio.
+              </p>
+              <ul class="service-bullets">
+                <li>Fachadas, recepções, consultórios, escritórios e espaços comerciais</li>
+                <li>Fotografia de produtos, gastronomia e apresentação de serviços</li>
+                <li>Registros de detalhes, materiais e elementos visuais da marca</li>
+              </ul>
+            </article>
+
+            <!-- CARD 03 -->
+            <article class="service-card highlight-card">
+              <div class="service-card-top">
+                <span class="service-tag tag-blue">Produção Audiovisual</span>
+                <div class="service-icon-box box-blue">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                  </svg>
+                </div>
+              </div>
+              <h3 class="service-title">Vídeos Institucionais, Comerciais &amp; Conteúdo</h3>
+              <p class="service-description">
+                Gravação de vídeos com iluminação dedicada e captação de áudio sem fio no seu espaço profissional, estruturada conforme a necessidade da sua comunicação.
+              </p>
+              <ul class="service-bullets">
+                <li>Gravação de vídeos falados, apresentações institucionais, depoimentos e bastidores</li>
+                <li>Modalidade Captação: gravação e entrega dos arquivos selecionados e organizados, prontos para edição ou utilização</li>
+                <li>Modalidade Vídeos Editados: corte, montagem e finalização contratados como serviço adicional</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+
+        <!-- BLOCO B — MERCADO SOCIAL E PARTICULAR -->
+        <div class="services-block reveal">
+          <div class="services-block-header">
+            <span class="block-badge badge-graphite">Mercado Social e Particular</span>
+            <p class="block-subtitle">
+              Para pessoas e famílias: registros de histórias, celebrações e momentos importantes com sensibilidade e qualidade estética.
+            </p>
+          </div>
+
+          <div class="services-grid">
+            <!-- CARD 04 -->
+            <article class="service-card">
+              <div class="service-card-top">
+                <span class="service-tag">Histórias &amp; União</span>
+                <div class="service-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                  </svg>
+                </div>
+              </div>
+              <h3 class="service-title">Casamentos &amp; Pré-Wedding</h3>
+              <p class="service-description">
+                Planejamento dedicado e acompanhamento fotográfico para casamentos e ensaios de noivos, registrando a cerimônia, a recepção e os ensaios prévios com direção leve e iluminação própria.
+              </p>
+              <ul class="service-bullets">
+                <li>Casamentos civis, cerimônias religiosas e recepções</li>
+                <li>Ensaios de Pré-Wedding em locações externas ou ambientes escolhidos pelo casal</li>
+                <li>Planejamento de horários, luz e momentos-chave junto aos noivos</li>
+              </ul>
+            </article>
+
+            <!-- CARD 05 -->
+            <article class="service-card">
+              <div class="service-card-top">
+                <span class="service-tag">Retratos &amp; Expressão</span>
+                <div class="service-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                    <circle cx="12" cy="13" r="4"></circle>
+                  </svg>
+                </div>
+              </div>
+              <h3 class="service-title">Ensaios Pessoais, Externos &amp; Editoriais</h3>
+              <p class="service-description">
+                Sessões fotográficas realizadas em locações externas ou espaços selecionados, com direção natural que respeita a personalidade de cada pessoa ou família.
+              </p>
+              <ul class="service-bullets">
+                <li>Ensaios individuais femininos e masculinos</li>
+                <li>Ensaios de casais e ensaios em família</li>
+                <li>Projetos fotográficos autorais e ensaios com estética editorial</li>
+              </ul>
+            </article>
+
+            <!-- CARD 06 -->
+            <article class="service-card">
+              <div class="service-card-top">
+                <span class="service-tag">Comemorações &amp; Encontros</span>
+                <div class="service-icon-box">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+              </div>
+              <h3 class="service-title">Aniversários, Celebrações &amp; Eventos</h3>
+              <p class="service-description">
+                Registro fotográfico de datas comemorativas familiares e eventos empresariais, priorizando a espontaneidade dos convidados e a dinâmica real do encontro.
+              </p>
+              <ul class="service-bullets">
+                <li>Aniversários, festas e comemorações particulares</li>
+                <li>Confraternizações de empresas, inaugurações, palestras e feiras</li>
+                <li>Registros espontâneos da interação, da decoração e do ambiente</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+
+        <!-- BLOCO DE FECHAMENTO DA SEÇÃO (PADRÃO DE ENTREGA & ESCOPO) -->
+        <div class="services-disclaimer-card reveal">
+          <div class="disclaimer-icon-wrap">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <div class="disclaimer-text">
+            <h4>Nosso Padrão de Entrega e Escopo de Trabalho</h4>
+            <div class="disclaimer-items">
+              <div class="disclaimer-item">
+                <strong class="disclaimer-subheading">Curadoria e Tratamento:</strong>
+                <p>Todas as fotografias entregues pela <img src="assets/logo-eles-crop.png" alt="Eles." class="inline-logo-service" loading="lazy" decoding="async" /> passam por seleção cuidadosa e tratamento de cor, luz e nitidez, sendo disponibilizadas em galeria digital organizada para acesso no computador ou celular.</p>
+              </div>
+              <div class="disclaimer-item">
+                <strong class="disclaimer-subheading">Foco Exclusivo em Fotografia e Vídeo:</strong>
+                <p>Atuamos exclusivamente na produção visual (captação fotográfica e audiovisual). Não operamos como agência de marketing ou social media — não realizamos gestão de redes sociais, redação de legendas, criação de peças gráficas ou agendamento de postagens. Entregamos o material fotográfico tratado e os arquivos de vídeo organizados (ou editados, quando contratado à parte) para que você ou sua equipe utilizem com total autonomia.</p>
+              </div>
+            </div>
+          </div>
+          <div class="disclaimer-action">
+            <a href="#contato" class="btn btn-primary">Solicitar Orçamento</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4º CONTAINER: SOBRE NÓS (USANDO A LOGO SEMPRE QUE CITAR A MARCA) -->
+    <section class="container-about section-padding" id="sobre">
+      <div class="section-inner">
+        <div class="about-grid editorial-split">
+          <!-- Fotos dos fundadores preservadas para reativação posterior quando desejar:
+          <div class="about-visuals reveal">
+            <div class="about-photo-main">
+              <img
+                src="assets/foto-socios.jpg"
+                alt="Retrato Corporativo de Sócios"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="about-photo-secondary">
+              <img
+                src="assets/foto-socios-2.jpg"
+                alt="Profissionais e Sócios"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+          -->
+
+          <div class="about-col-title reveal">
+            <div class="about-title-track">
+              <div class="about-title-sticky">
+                <h2 class="section-title">
+                  Nascida da vontade de crescer.
+                </h2>
+              </div>
+            </div>
+            <div class="about-logo-bottom desktop-logo">
+              <img src="assets/logo-foram-eles-branca-crop.png" alt="FORAM Eles." class="about-logo-img" loading="lazy" decoding="async" />
+            </div>
+          </div>
+
+          <div class="about-col-content reveal">
+            <p class="about-paragraph highlight-p">
+              Idealizada por dois jovens, apaixonados por captar imagens e transformar momentos reais em registros de alto impacto. A <img src="assets/logo-foram-eles-branca-crop.png" alt="FORAM Eles." class="inline-logo-text" loading="lazy" decoding="async" /> nasceu do desejo de evoluir constantemente e trazer um olhar autêntico e dinâmico para o mercado.
+            </p>
+
+            <p class="about-paragraph">
+              Unimos tecnologia de qualidade, iluminação dedicada e uma condução tranquila que deixa qualquer pessoa à vontade. Entregamos fotos e produções finalizadas com precisão estética, prontas para posicionar especialistas, clínicas e empresas com autoridade e elegância.
+            </p>
+
+            <div class="founders-row">
+              <div class="founder-chip">
+                <div class="founder-avatar">L</div>
+                <div>
+                  <h4>Luiz</h4>
+                  <span>Co-fundador • Fotografia &amp; Audiovisual</span>
+                </div>
+              </div>
+              <div class="founder-chip">
+                <div class="founder-avatar">JA</div>
+                <div>
+                  <h4>João Arthur</h4>
+                  <span>Co-fundador • Fotografia &amp; Audiovisual</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-logo-bottom mobile-logo">
+              <img src="assets/logo-foram-eles-branca-crop.png" alt="FORAM Eles." class="about-logo-img" loading="lazy" decoding="async" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5º CONTAINER: DIFERENCIAIS & EQUIPAMENTOS -->
+    <section class="container-features section-padding" id="diferenciais">
+      <div class="section-inner">
+        <div class="features-header reveal">
+          <h2 class="section-title">
+            Por que escolher <img src="assets/logo-eles-crop.png" alt="Eles." class="inline-logo-title" loading="lazy" decoding="async" />?
+          </h2>
+          <p class="section-desc">
+            Equipamentos de qualidade, atendimento humanizado e compromisso com o resultado!
+          </p>
+        </div>
+
+        <div class="features-grid reveal">
+          <div class="feature-box">
+            <div class="feature-icon">01</div>
+            <h3>Tecnologia &amp; Qualidade</h3>
+            <p>
+              Câmeras e lentes de alto desempenho com iluminação dedicada para entregar definição cristalina, cores fiéis e textura limpa.
+            </p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon">02</div>
+            <h3>Direção Leve e Natural</h3>
+            <p>
+              Conduzimos o momento com tranquilidade para registrar você e sua equipe de forma espontânea e autêntica.
+            </p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon">03</div>
+            <h3>Agilidade</h3>
+            <p>
+              Cada ensaio ganha múltiplos ângulos, dinamismo no atendimento e rapidez no fluxo de entrega.
+            </p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feature-icon">04</div>
+            <h3>Fotos Finalizadas &amp; Prontas</h3>
+            <p>
+              Entregamos todas as fotos digitais tratadas e finalizadas com cuidado estético, prontas para uso em seu site, redes sociais e materiais institucionais.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6º CONTAINER: CONTATO / CHAMAR NO WHATSAPP -->
+    <section class="container-contact section-padding" id="contato">
+      <div class="section-inner">
+        <div class="contact-card reveal">
+          <!-- Canvas de cores em movimento autônomo exclusivo dentro deste container limitado -->
+          <div class="contact-canvas-wrapper" aria-hidden="true">
+            <canvas id="contact-breathing-canvas"></canvas>
+          </div>
+
+          <div class="contact-copy">
+            <h2 class="section-title">
+              Quem tirou essa foto?<br />
+              <img src="assets/logo-foram-eles-crop.png" alt="FORAM Eles." class="inline-logo-contact" loading="lazy" decoding="async" />
+            </h2>
+            <p class="section-desc">
+              Entre em contato diretamente conosco e agende a captação de momentos especiais para você!
+            </p>
+          </div>
+
+          <div class="contact-buttons-panel">
+            <a href="https://wa.me/5534998610300" target="_blank" rel="noopener noreferrer" class="btn-brand btn-whatsapp" aria-label="WhatsApp">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.79 14.15c-.24.68-1.39 1.3-1.92 1.38-.49.07-1.11.1-3.26-.79-2.58-1.07-4.22-3.7-4.35-3.87-.13-.17-1.04-1.38-1.04-2.64 0-1.25.66-1.87.9-2.12.24-.25.52-.31.69-.31.18 0 .35 0 .5.01.16.01.37-.06.58.44.22.52.74 1.8.8 1.93.07.13.11.29.02.46-.08.17-.13.28-.26.43-.13.15-.27.34-.39.46-.13.13-.26.27-.11.53.15.26.68 1.12 1.46 1.82 1 .89 1.85 1.17 2.11 1.3.26.13.42.11.57-.07.16-.18.66-.77.84-1.03.17-.26.35-.22.59-.13.24.09 1.52.72 1.78.85.26.13.43.2.5.31.06.11.06.66-.18 1.34z"/>
+              </svg>
+              <span>WhatsApp</span>
+            </a>
+
+            <a href="https://www.instagram.com/foram.eles?dlrf=MW1zMHRjZjJ2d3ppdQ%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" class="btn-brand btn-instagram" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+              <span>Instagram</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL DE ÁLBUM COM FUNDO DESFOCADO (ABRE AO CLICAR NOS CARDS DE FOTOS) -->
+  <div class="album-modal" id="album-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="album-modal-backdrop" id="album-modal-backdrop"></div>
+    <div class="album-modal-content">
+      <button class="album-modal-close" id="album-modal-close" aria-label="Fechar álbum">&times;</button>
+
+      <div class="album-modal-header">
+        <div>
+          <span class="album-modal-cat" id="album-modal-cat">Categoria</span>
+          <h3 class="album-modal-title" id="album-modal-title">Título do Álbum</h3>
+        </div>
+        <span class="album-modal-counter" id="album-modal-counter">1 / 4</span>
+      </div>
+
+      <div class="album-viewer" id="album-viewer">
+        <button class="album-nav-btn prev" id="album-prev" aria-label="Foto anterior">&#10094;</button>
+        <div class="album-main-img-wrap">
+          <img src="" alt="Foto do álbum" id="album-main-img" class="album-main-img" decoding="async" />
+        </div>
+        <button class="album-nav-btn next" id="album-next" aria-label="Próxima foto">&#10095;</button>
+      </div>
+
+      <div class="album-thumbs" id="album-thumbs"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="section-inner footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo-eles-crop.png" alt="Eles." class="footer-logo" loading="lazy" decoding="async" />
+        <span>Fotografia &amp; Audiovisual por Luiz &amp; João Arthur.</span>
+      </div>
+      <div class="footer-copy">
+        &copy; <span id="year">2026</span> <img src="assets/logo-foram-eles-crop.png" alt="FORAM Eles." class="inline-logo-footer" loading="lazy" decoding="async" /> Todos os direitos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <!-- CookieConsent v3 (LGPD) -->
+  <script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.1/dist/cookieconsent.umd.js" defer></script>
+  <script src="script.js?v=20261115-v16" defer></script>
+</body>
+</html>
