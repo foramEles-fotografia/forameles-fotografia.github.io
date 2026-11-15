@@ -84,11 +84,10 @@ body {
 }
 
 .inline-logo-contact {
-  height: 1.05em;
+  height: clamp(2.2rem, 4.2vw, 3.2rem);
   width: auto;
-  display: inline-block;
-  vertical-align: 0;
-  margin-top: 0.65rem;
+  display: block;
+  margin-top: 1.1rem;
   object-fit: contain;
 }
 
@@ -257,8 +256,6 @@ body {
   width: 100%;
   height: 100%;
   display: block;
-  filter: blur(88px);
-  -webkit-filter: blur(88px);
   transform: translate3d(0, 0, 0);
 }
 
@@ -1520,8 +1517,6 @@ body {
   width: 100%;
   height: 100%;
   display: block;
-  filter: blur(32px);
-  -webkit-filter: blur(32px);
   transform: translate3d(0, 0, 0);
 }
 
@@ -1531,10 +1526,16 @@ body {
   z-index: 2;
 }
 
+.contact-copy .section-title {
+  font-size: clamp(1.95rem, 3.5vw, 2.85rem);
+  line-height: 1.15;
+  margin-bottom: 1.4rem;
+}
+
 .contact-copy .section-desc {
   color: var(--slate-700);
-  font-size: 1.05rem;
-  line-height: 1.6;
+  font-size: 1.14rem;
+  line-height: 1.65;
 }
 
 /* Painel de botões elegantes no padrão Apple (Pill / Learn More & Buy - Lado a Lado) */
@@ -1542,7 +1543,7 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 0.95rem;
+  gap: 1.1rem;
   justify-content: flex-end;
   align-items: center;
   max-width: none;
@@ -1554,11 +1555,11 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.65rem;
-  padding: 0.72rem 1.7rem;
+  gap: 0.75rem;
+  padding: 0.96rem 2.25rem;
   border-radius: 9999px;
   font-family: -apple-system, BlinkMacSystemFont, var(--font-sans);
-  font-size: 0.98rem;
+  font-size: 1.08rem;
   font-weight: 500;
   letter-spacing: -0.01em;
   text-decoration: none;
@@ -1569,8 +1570,8 @@ body {
 
 .btn-brand svg {
   flex-shrink: 0;
-  width: 19px;
-  height: 19px;
+  width: 21px;
+  height: 21px;
   transition: transform 0.25s ease;
 }
 
@@ -2154,6 +2155,20 @@ body {
     gap: 1.6rem;
   }
 
+  .contact-copy .section-title {
+    font-size: 1.65rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .inline-logo-contact {
+    height: 2.35rem;
+    margin-top: 0.85rem;
+  }
+
+  .contact-copy .section-desc {
+    font-size: 1.02rem;
+  }
+
   .contact-buttons-panel {
     display: flex;
     flex-direction: row;
@@ -2169,8 +2184,14 @@ body {
   .btn-brand {
     flex: 1 1 135px;
     width: auto;
-    padding: 0.75rem 1.25rem;
-    font-size: 0.94rem;
+    padding: 0.78rem 1.25rem;
+    font-size: 0.95rem;
+    gap: 0.55rem;
+  }
+
+  .btn-brand svg {
+    width: 18px;
+    height: 18px;
   }
 
   /* Modal no celular */

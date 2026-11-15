@@ -58,10 +58,11 @@
     height = parent.offsetHeight || window.innerHeight * 2;
     viewH = window.innerHeight;
 
-    // Resolução 1:1 direta: elimina 100% de quadriculados, serrilhados ou aspecto pixelado
-    canvas.width = Math.round(width);
-    canvas.height = Math.round(height);
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    // Escala 0.5x para preenchimento suave e fluidez máxima em 60/120fps no PC
+    const renderScale = 0.5;
+    canvas.width = Math.max(1, Math.round(width * renderScale));
+    canvas.height = Math.max(1, Math.round(height * renderScale));
+    ctx.setTransform(renderScale, 0, 0, renderScale, 0, 0);
 
     if (!initialized) {
       anchor.x = anchor.targetX = width * 0.5;
@@ -286,9 +287,10 @@
     if (!parent) return;
     width = Math.max(260, parent.offsetWidth);
     height = Math.max(220, parent.offsetHeight);
-    contactCanvas.width = Math.round(width);
-    contactCanvas.height = Math.round(height);
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    const renderScale = 0.5;
+    contactCanvas.width = Math.max(1, Math.round(width * renderScale));
+    contactCanvas.height = Math.max(1, Math.round(height * renderScale));
+    ctx.setTransform(renderScale, 0, 0, renderScale, 0, 0);
   }
 
   window.addEventListener('resize', resizeContactCanvas, { passive: true });
@@ -304,15 +306,10 @@
     { r: 255, g: 226, b: 132 }  // Amarelo manteiga / Âmbar claro alegre
   ];
 
-  // Cores pastéis suaves e compactas que percorrem ATIVAMENTE todo o container pelas bordas e cantos
+  // 2 manchas fluidas e suaves que passeiam organicamente sem amontoar nos cantos
   const autonomousBlobs = [
-    // 6 manchas distribuídas com percursos contínuos ao longo de todo o perímetro do container
-    { baseRadius: 185, speed:  0.00030, phase: 0.00, rx: 0.40, ry: 0.38, wobbleX: 0.06, wobbleY: 0.07, colorOffset: 0.0, baseAlpha: 0.36 },
-    { baseRadius: 175, speed: -0.00027, phase: 1.05, rx: 0.41, ry: 0.36, wobbleX: 0.07, wobbleY: 0.06, colorOffset: 1.0, baseAlpha: 0.34 },
-    { baseRadius: 190, speed:  0.00028, phase: 2.10, rx: 0.39, ry: 0.39, wobbleX: 0.06, wobbleY: 0.08, colorOffset: 2.0, baseAlpha: 0.37 },
-    { baseRadius: 170, speed: -0.00031, phase: 3.15, rx: 0.42, ry: 0.37, wobbleX: 0.08, wobbleY: 0.06, colorOffset: 3.0, baseAlpha: 0.33 },
-    { baseRadius: 180, speed:  0.00029, phase: 4.20, rx: 0.40, ry: 0.39, wobbleX: 0.07, wobbleY: 0.07, colorOffset: 4.0, baseAlpha: 0.35 },
-    { baseRadius: 175, speed: -0.00026, phase: 5.25, rx: 0.41, ry: 0.38, wobbleX: 0.06, wobbleY: 0.07, colorOffset: 5.0, baseAlpha: 0.34 }
+    { baseRadius: 270, speed:  0.00028, phase: 0.00, rx: 0.32, ry: 0.28, wobbleX: 0.08, wobbleY: 0.08, colorOffset: 0.0, baseAlpha: 0.34 },
+    { baseRadius: 255, speed: -0.00023, phase: 3.14, rx: 0.30, ry: 0.26, wobbleX: 0.09, wobbleY: 0.07, colorOffset: 2.5, baseAlpha: 0.30 }
   ];
 
   function getInterpolatedContactColor(time, offset) {
@@ -360,22 +357,19 @@
       const b = autonomousBlobs[i];
       const theta = time * b.speed + b.phase;
 
-      // Trajetória que percorre todas as 4 bordas e os cantos do container:
-      // A função exponencial estende os cantos e margens, fazendo as manchas andarem por todo o contorno
-      const cosT = Math.cos(theta);
-      const sinT = Math.sin(theta);
-      const px = Math.sign(cosT) * Math.pow(Math.abs(cosT), 0.65);
-      const py = Math.sign(sinT) * Math.pow(Math.abs(sinT), 0.65);
+      // Órbita orgânica suave sem prender nos cantos
+      const px = Math.cos(theta);
+      const py = Math.sin(theta * 0.85);
 
       const x =
         width * 0.5 +
         width * b.rx * px +
-        Math.sin(time * 0.00055 + b.phase * 2) * (width * b.wobbleX);
+        Math.sin(time * 0.00045 + b.phase * 1.7) * (width * b.wobbleX);
 
       const y =
         height * 0.5 +
         height * b.ry * py +
-        Math.cos(time * 0.00045 - b.phase) * (height * b.wobbleY);
+        Math.cos(time * 0.00038 - b.phase) * (height * b.wobbleY);
 
       const breathe = Math.sin(time * 0.00032 + b.phase);
       const rad = b.baseRadius * scaleFactor * (1 + breathe * 0.10);
