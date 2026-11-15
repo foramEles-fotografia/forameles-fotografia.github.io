@@ -224,17 +224,17 @@
     const c1 = ringColor(stain.colorPos);
     const c2 = ringColor(stain.colorPos + 3.0);
 
-    // Tamanho e espalhamento ajustados para PC e mobile (bio e 1º container do site)
-    const mobileScale = isBioPage ? 0.38 : 0.46;
+    // Tamanho e espalhamento (no mobile do site, bem mais compacto)
+    const mobileScale = isBioPage ? 0.38 : 0.24;
     const pcScale = isBioPage ? 0.44 : 0.32;
     const base = isMobile ? width * mobileScale : Math.min(width, viewH * 1.25) * pcScale;
     const radius = base * (1 + 0.08 * Math.sin(time * 0.0011));
 
-    // Força da cor ajustada (-5% no PC; -25% no mobile bio; -20% no mobile container 1)
-    const basePC = isBioPage ? 0.41 : 0.55;
-    const roamingAlpha = isBioPage ? 0.47 : 0.63;
+    // Força da cor suavizada para o efeito de vidro fosco
+    const basePC = isBioPage ? 0.34 : 0.44;
+    const roamingAlpha = isBioPage ? 0.39 : 0.50;
     const pcAlpha = roamingAlpha + (basePC - roamingAlpha) * stain.influence;
-    const mobileAlpha = isBioPage ? 0.33 : 0.46;
+    const mobileAlpha = isBioPage ? 0.28 : 0.26;
     const alpha = isMobile ? mobileAlpha : pcAlpha;
 
     // Dois lóbulos: mais compactos no site e mais abertos na bio desktop
