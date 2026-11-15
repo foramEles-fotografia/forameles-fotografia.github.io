@@ -83,13 +83,14 @@
   // - Cores vizinhas no círculo cromático (nunca opostas) = sem tons sujos.
   // ==========================================================================
   const colorRing = [
-    { r: 110, g: 185, b: 255 }, // Azul bebê
-    { r: 105, g: 225, b: 240 }, // Ciano claro
-    { r: 120, g: 235, b: 190 }, // Verde menta
-    { r: 250, g: 225, b: 130 }, // Amarelo manteiga
-    { r: 255, g: 185, b: 130 }, // Pêssego
-    { r: 255, g: 160, b: 200 }, // Rosa
-    { r: 200, g: 170, b: 255 }  // Lilás
+    { r: 37,  g: 99,  b: 235 }, // Azul Oficial do Ponto (#2563EB)
+    { r: 29,  g: 78,  b: 216 }, // Azul Cobalto Profundo (#1D4ED8)
+    { r: 59,  g: 130, b: 246 }, // Azul Vivo (#3B82F6)
+    { r: 96,  g: 165, b: 250 }, // Azul Celeste (#60A5FA)
+    { r: 147, g: 197, b: 253 }, // Azul Bebê Suave (#93C5FD)
+    { r: 56,  g: 189, b: 248 }, // Azul Sky / Turquesa (#38BDF8)
+    { r: 34,  g: 211, b: 238 }, // Ciano Claro (#22D3EE)
+    { r: 14,  g: 165, b: 233 }  // Azul Oceano (#0EA5E9)
   ];
 
   function ringColor(pos) {
@@ -190,8 +191,8 @@
     // Energia do mouse decai sozinha (cores aceleram só enquanto o mouse mexe)
     stain.mouseEnergy *= 0.94;
 
-    // Passeio lento e contínuo (período ~40-55s), começando em ponto aleatório
-    const t = time * 0.00014;
+    // Passeio fluido e contínuo mais rápido pela tela, começando em ponto aleatório
+    const t = time * 0.00032;
     const wanderX = width * (0.5 + 0.30 * Math.sin(t * 1.00 + stain.phaseX) + 0.07 * Math.sin(t * 2.3 + stain.phaseY));
     const wanderY = viewH * (0.46 + 0.26 * Math.sin(t * 0.83 + stain.phaseY) + 0.06 * Math.cos(t * 1.9 + stain.phaseX));
 
@@ -205,27 +206,27 @@
       stain.y = goalY;
       stain.placed = true;
     }
-    const follow = 0.02 + 0.05 * stain.influence;
+    const follow = 0.03 + 0.065 * stain.influence;
     stain.x += (goalX - stain.x) * follow;
     stain.y += (goalY - stain.y) * follow;
 
-    // Cores: giro lento no círculo cromático; acelera quando o mouse mexe
-    stain.colorPos += dt * (0.00018 + 0.0020 * stain.mouseEnergy);
+    // Cores: transição dinâmica nos tons de azul; acelera ainda mais quando o mouse mexe
+    stain.colorPos += dt * (0.00042 + 0.0032 * stain.mouseEnergy);
     const c1 = ringColor(stain.colorPos);
-    const c2 = ringColor(stain.colorPos + 1.15);
+    const c2 = ringColor(stain.colorPos + 1.35);
 
-    // Tamanho: só um pedaço da tela
-    const base = isMobile ? width * 0.52 : Math.min(width, viewH * 1.25) * 0.27;
-    const radius = base * (1 + 0.06 * Math.sin(time * 0.0006));
+    // Tamanho: presença marcante e envolvente
+    const base = isMobile ? width * 0.62 : Math.min(width, viewH * 1.25) * 0.33;
+    const radius = base * (1 + 0.07 * Math.sin(time * 0.0009));
 
-    // No PC: força da cor quando o mouse não estiver por cima (+10% base de 0.34 para 0.37; +15% enquanto roda solta pela tela: 0.455)
-    const basePC = 0.37;
-    const roamingAlpha = 0.455;
+    // Força da cor ampliada (PC e Mobile)
+    const basePC = 0.56;
+    const roamingAlpha = 0.64;
     const pcAlpha = roamingAlpha + (basePC - roamingAlpha) * stain.influence;
-    const alpha = isMobile ? 0.42 : pcAlpha;
+    const alpha = isMobile ? 0.58 : pcAlpha;
 
-    // Dois lóbulos próximos (uma cor em cada) que se misturam em degradê e giram devagar
-    const spin = time * 0.00035 + stain.phaseX;
+    // Dois lóbulos próximos que se misturam em degradê e giram com mais agilidade
+    const spin = time * 0.00075 + stain.phaseX;
     const off = radius * 0.34;
     const ox = Math.cos(spin) * off;
     const oy = Math.sin(spin) * off * 0.8;
