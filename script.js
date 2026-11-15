@@ -191,10 +191,10 @@
     // Energia do mouse decai sozinha (cores aceleram só enquanto o mouse mexe)
     stain.mouseEnergy *= 0.94;
 
-    // Passeio fluido e contínuo mais rápido pela tela, começando em ponto aleatório
-    const t = time * 0.00032;
-    const wanderX = width * (0.5 + 0.30 * Math.sin(t * 1.00 + stain.phaseX) + 0.07 * Math.sin(t * 2.3 + stain.phaseY));
-    const wanderY = viewH * (0.46 + 0.26 * Math.sin(t * 0.83 + stain.phaseY) + 0.06 * Math.cos(t * 1.9 + stain.phaseX));
+    // Passeio fluido, mais rápido e amplo pela tela, começando em ponto aleatório
+    const t = time * 0.00055;
+    const wanderX = width * (0.5 + 0.34 * Math.sin(t * 1.00 + stain.phaseX) + 0.08 * Math.sin(t * 2.3 + stain.phaseY));
+    const wanderY = viewH * (0.48 + 0.30 * Math.sin(t * 0.83 + stain.phaseY) + 0.07 * Math.cos(t * 1.9 + stain.phaseX));
 
     const mouseX = anchor.targetX;
     const mouseY = anchor.targetY;
@@ -206,28 +206,28 @@
       stain.y = goalY;
       stain.placed = true;
     }
-    const follow = 0.03 + 0.065 * stain.influence;
+    const follow = 0.035 + 0.075 * stain.influence;
     stain.x += (goalX - stain.x) * follow;
     stain.y += (goalY - stain.y) * follow;
 
-    // Cores: transição dinâmica nos tons de azul; acelera ainda mais quando o mouse mexe
-    stain.colorPos += dt * (0.00042 + 0.0032 * stain.mouseEnergy);
+    // Cores: sempre duas tonalidades distintas de azul em cada fumaça (+3.0 no anel cromático)
+    stain.colorPos += dt * (0.00065 + 0.0038 * stain.mouseEnergy);
     const c1 = ringColor(stain.colorPos);
-    const c2 = ringColor(stain.colorPos + 1.35);
+    const c2 = ringColor(stain.colorPos + 3.0);
 
-    // Tamanho: presença marcante e envolvente
-    const base = isMobile ? width * 0.62 : Math.min(width, viewH * 1.25) * 0.33;
-    const radius = base * (1 + 0.07 * Math.sin(time * 0.0009));
+    // Tamanho e espalhamento maiores pela tela
+    const base = isMobile ? width * 0.72 : Math.min(width, viewH * 1.25) * 0.40;
+    const radius = base * (1 + 0.08 * Math.sin(time * 0.0011));
 
     // Força da cor ampliada (PC e Mobile)
-    const basePC = 0.56;
-    const roamingAlpha = 0.64;
+    const basePC = 0.58;
+    const roamingAlpha = 0.66;
     const pcAlpha = roamingAlpha + (basePC - roamingAlpha) * stain.influence;
-    const alpha = isMobile ? 0.58 : pcAlpha;
+    const alpha = isMobile ? 0.60 : pcAlpha;
 
-    // Dois lóbulos próximos que se misturam em degradê e giram com mais agilidade
-    const spin = time * 0.00075 + stain.phaseX;
-    const off = radius * 0.34;
+    // Dois lóbulos mais espalhados que se misturam em degradê e giram com agilidade
+    const spin = time * 0.00135 + stain.phaseX;
+    const off = radius * 0.50;
     const ox = Math.cos(spin) * off;
     const oy = Math.sin(spin) * off * 0.8;
 
