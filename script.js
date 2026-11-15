@@ -94,12 +94,12 @@
     { r: 34,  g: 211, b: 238 }, // Ciano Claro (#22D3EE)
     { r: 14,  g: 165, b: 233 }  // Azul Oceano (#0EA5E9)
   ] : [
-    { r: 23,  g: 58,  b: 165 }, // Azul Marinho Profundo
-    { r: 29,  g: 78,  b: 216 }, // Azul Cobalto Escuro (#1D4ED8)
-    { r: 30,  g: 64,  b: 175 }, // Azul Safira (#1E40AF)
+    { r: 29,  g: 78,  b: 216 }, // Azul Cobalto (#1D4ED8)
+    { r: 56,  g: 189, b: 248 }, // Azul Sky (#38BDF8)
+    { r: 6,   g: 182, b: 212 }, // Ciano Turquesa (#06B6D4)
+    { r: 79,  g: 70,  b: 229 }, // Índigo Suave (#4F46E5)
     { r: 37,  g: 99,  b: 235 }, // Azul Royal (#2563EB)
-    { r: 15,  g: 95,  b: 190 }, // Azul Oceano Escuro
-    { r: 2,   g: 132, b: 199 }  // Azul Petróleo Vivo (#0284C7)
+    { r: 96,  g: 165, b: 250 }  // Azul Celeste (#60A5FA)
   ];
 
   function ringColor(pos) {
@@ -162,10 +162,14 @@
   window.addEventListener('mousemove', (e) => pointerMove(e.clientX, e.clientY), { passive: true });
   document.addEventListener('mouseleave', () => { anchor.isMoving = false; });
 
-  // Gradiente radial com queda em cosseno: chega a zero na borda com inclinação zero (sem contorno visível)
-  function drawSoftBlob(x, y, rad, r, g, b, alpha) {
+  // Gradiente radial elíptico com queda em cosseno: sem forma redonda e sem contorno visível
+  function drawSoftBlob(x, y, rad, r, g, b, alpha, scaleX = 1, scaleY = 1, rot = 0) {
     if (rad <= 0 || alpha <= 0) return;
-    const grad = ctx.createRadialGradient(x, y, 0, x, y, rad);
+    ctx.save();
+    ctx.translate(x, y);
+    if (rot) ctx.rotate(rot);
+    if (scaleX !== 1 || scaleY !== 1) ctx.scale(scaleX, scaleY);
+    const grad = ctx.createRadialGradient(0, 0, 0, 0, 0, rad);
     const steps = 10;
     for (let s = 0; s <= steps; s++) {
       const t = s / steps;
@@ -174,8 +178,9 @@
     }
     ctx.fillStyle = grad;
     ctx.beginPath();
-    ctx.arc(x, y, rad, 0, Math.PI * 2);
+    ctx.arc(0, 0, rad, 0, Math.PI * 2);
     ctx.fill();
+    ctx.restore();
   }
 
   function animate(time) {
@@ -219,32 +224,52 @@
     stain.x += (goalX - stain.x) * follow;
     stain.y += (goalY - stain.y) * follow;
 
-    // Cores: sempre duas tonalidades distintas de azul em cada fumaça (+3.0 no anel cromático)
-    stain.colorPos += dt * (0.00065 + 0.0038 * stain.mouseEnergy);
+    // Cores: transição contínua mais perceptível entre tons distintos
+    stain.colorPos += dt * (0.0011 + 0.0042 * stain.mouseEnergy);
     const c1 = ringColor(stain.colorPos);
-    const c2 = ringColor(stain.colorPos + 3.0);
+    const c2 = ringColor(stain.colorPos + 2.2);
+    const c3 = ringColor(stain.colorPos + 4.1);
 
     // Tamanho e espalhamento (no mobile do site, bem mais compacto)
     const mobileScale = isBioPage ? 0.38 : 0.24;
-    const pcScale = isBioPage ? 0.44 : 0.32;
+    const pcScale = isBioPage ? 0.44 : 0.34;
     const base = isMobile ? width * mobileScale : Math.min(width, viewH * 1.25) * pcScale;
     const radius = base * (1 + 0.08 * Math.sin(time * 0.0011));
 
-    // Força da cor suavizada para o efeito de vidro fosco
-    const basePC = isBioPage ? 0.34 : 0.44;
-    const roamingAlpha = isBioPage ? 0.39 : 0.50;
+    // Força da cor suavizada (no PC do site, bem mais leve)
+    const basePC = isBioPage ? 0.34 : 0.26;
+    const roamingAlpha = isBioPage ? 0.39 : 0.30;
     const pcAlpha = roamingAlpha + (basePC - roamingAlpha) * stain.influence;
     const mobileAlpha = isBioPage ? 0.28 : 0.26;
     const alpha = isMobile ? mobileAlpha : pcAlpha;
 
-    // Dois lóbulos: mais compactos no site e mais abertos na bio desktop
-    const spin = time * 0.00135 + stain.phaseX;
-    const off = radius * (isBioPage ? (isMobile ? 0.42 : 0.50) : 0.34);
-    const ox = Math.cos(spin) * off;
-    const oy = Math.sin(spin) * off * 0.8;
-
-    drawSoftBlob(stain.x - ox, stain.y - oy, radius, c1.r, c1.g, c1.b, alpha);
-    drawSoftBlob(stain.x + ox, stain.y + oy, radius, c2.r, c2.g, c2.b, alpha);
+    // Lóbulos orgânicos assimétricos (sem forma redonda)
+    const spin = time * 0.0012 + stain.phaseX;
+    if (!isBioPage && !isMobile) {
+      const off1 = radius * 0.58;
+      const off2 = radius * 0.52;
+      drawSoftBlob(
+        stain.x + Math.cos(spin) * off1,
+        stain.y + Math.sin(spin * 0.8) * off1 * 0.65,
+        radius * 1.05, c1.r, c1.g, c1.b, alpha, 1.45, 0.72, spin * 0.4
+      );
+      drawSoftBlob(
+        stain.x - Math.cos(spin * 0.9 + 1.4) * off2,
+        stain.y + Math.sin(spin * 1.1 + 0.9) * off2 * 0.75,
+        radius * 0.92, c2.r, c2.g, c2.b, alpha * 0.9, 0.76, 1.38, -spin * 0.35
+      );
+      drawSoftBlob(
+        stain.x + Math.sin(spin * 0.7 + 2.6) * off1 * 0.85,
+        stain.y - Math.cos(spin * 0.85 + 1.9) * off2 * 0.7,
+        radius * 0.84, c3.r, c3.g, c3.b, alpha * 0.82, 1.28, 0.78, spin * 0.25 + 1.1
+      );
+    } else {
+      const off = radius * (isBioPage ? (isMobile ? 0.42 : 0.50) : 0.34);
+      const ox = Math.cos(spin) * off;
+      const oy = Math.sin(spin) * off * 0.8;
+      drawSoftBlob(stain.x - ox, stain.y - oy, radius, c1.r, c1.g, c1.b, alpha);
+      drawSoftBlob(stain.x + ox, stain.y + oy, radius, c2.r, c2.g, c2.b, alpha);
+    }
 
     rafId = requestAnimationFrame(animate);
   }
