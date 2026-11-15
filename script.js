@@ -83,7 +83,7 @@
   // - Ocupa só um pedaço da tela e se desfaz em degradê até o fundo branco.
   // - Cores vizinhas no círculo cromático (nunca opostas) = sem tons sujos.
   // ==========================================================================
-  const colorRing = [
+  const colorRing = isBioPage ? [
     { r: 37,  g: 99,  b: 235 }, // Azul Oficial do Ponto (#2563EB)
     { r: 29,  g: 78,  b: 216 }, // Azul Cobalto Profundo (#1D4ED8)
     { r: 59,  g: 130, b: 246 }, // Azul Vivo (#3B82F6)
@@ -92,6 +92,13 @@
     { r: 56,  g: 189, b: 248 }, // Azul Sky / Turquesa (#38BDF8)
     { r: 34,  g: 211, b: 238 }, // Ciano Claro (#22D3EE)
     { r: 14,  g: 165, b: 233 }  // Azul Oceano (#0EA5E9)
+  ] : [
+    { r: 23,  g: 58,  b: 165 }, // Azul Marinho Profundo
+    { r: 29,  g: 78,  b: 216 }, // Azul Cobalto Escuro (#1D4ED8)
+    { r: 30,  g: 64,  b: 175 }, // Azul Safira (#1E40AF)
+    { r: 37,  g: 99,  b: 235 }, // Azul Royal (#2563EB)
+    { r: 15,  g: 95,  b: 190 }, // Azul Oceano Escuro
+    { r: 2,   g: 132, b: 199 }  // Azul Petróleo Vivo (#0284C7)
   ];
 
   function ringColor(pos) {
@@ -216,22 +223,22 @@
     const c1 = ringColor(stain.colorPos);
     const c2 = ringColor(stain.colorPos + 3.0);
 
-    // Tamanho e espalhamento (na tela inicial de opções no mobile fica mais compacto)
-    const mobileScale = isBioPage ? 0.50 : 0.72;
-    const pcScale = isBioPage ? 0.36 : 0.40;
+    // Tamanho e espalhamento (compacto em "Imagens que valorizam" no site e reduzido no mobile da bio)
+    const mobileScale = isBioPage ? 0.50 : 0.48;
+    const pcScale = isBioPage ? 0.36 : 0.26;
     const base = isMobile ? width * mobileScale : Math.min(width, viewH * 1.25) * pcScale;
     const radius = base * (1 + 0.08 * Math.sin(time * 0.0011));
 
-    // Força da cor (mais suave na tela de opções inicial, tanto no PC quanto no mobile)
+    // Força da cor (mais suave na tela de opções inicial; mais escura e marcada em "Imagens que valorizam")
     const basePC = isBioPage ? 0.43 : 0.58;
     const roamingAlpha = isBioPage ? 0.49 : 0.66;
     const pcAlpha = roamingAlpha + (basePC - roamingAlpha) * stain.influence;
-    const mobileAlpha = isBioPage ? 0.44 : 0.60;
+    const mobileAlpha = isBioPage ? 0.44 : 0.58;
     const alpha = isMobile ? mobileAlpha : pcAlpha;
 
-    // Dois lóbulos espalhados que se misturam em degradê e giram com agilidade
+    // Dois lóbulos: mais compactos no site e mais abertos na bio desktop
     const spin = time * 0.00135 + stain.phaseX;
-    const off = radius * (isBioPage && isMobile ? 0.42 : 0.50);
+    const off = radius * (isBioPage ? (isMobile ? 0.42 : 0.50) : 0.34);
     const ox = Math.cos(spin) * off;
     const oy = Math.sin(spin) * off * 0.8;
 
