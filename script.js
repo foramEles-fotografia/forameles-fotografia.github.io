@@ -26,6 +26,7 @@
 
   const mobileQuery = window.matchMedia('(max-width: 768px), (pointer: coarse)');
   let isMobile = mobileQuery.matches;
+  const isBioPage = document.body && document.body.classList.contains('bio-body');
 
   let width = 0;
   let height = 0;
@@ -215,19 +216,22 @@
     const c1 = ringColor(stain.colorPos);
     const c2 = ringColor(stain.colorPos + 3.0);
 
-    // Tamanho e espalhamento maiores pela tela
-    const base = isMobile ? width * 0.72 : Math.min(width, viewH * 1.25) * 0.40;
+    // Tamanho e espalhamento (na tela inicial de opções no mobile fica mais compacto)
+    const mobileScale = isBioPage ? 0.50 : 0.72;
+    const pcScale = isBioPage ? 0.36 : 0.40;
+    const base = isMobile ? width * mobileScale : Math.min(width, viewH * 1.25) * pcScale;
     const radius = base * (1 + 0.08 * Math.sin(time * 0.0011));
 
-    // Força da cor ampliada (PC e Mobile)
-    const basePC = 0.58;
-    const roamingAlpha = 0.66;
+    // Força da cor (mais suave na tela de opções inicial, tanto no PC quanto no mobile)
+    const basePC = isBioPage ? 0.43 : 0.58;
+    const roamingAlpha = isBioPage ? 0.49 : 0.66;
     const pcAlpha = roamingAlpha + (basePC - roamingAlpha) * stain.influence;
-    const alpha = isMobile ? 0.60 : pcAlpha;
+    const mobileAlpha = isBioPage ? 0.44 : 0.60;
+    const alpha = isMobile ? mobileAlpha : pcAlpha;
 
-    // Dois lóbulos mais espalhados que se misturam em degradê e giram com agilidade
+    // Dois lóbulos espalhados que se misturam em degradê e giram com agilidade
     const spin = time * 0.00135 + stain.phaseX;
-    const off = radius * 0.50;
+    const off = radius * (isBioPage && isMobile ? 0.42 : 0.50);
     const ox = Math.cos(spin) * off;
     const oy = Math.sin(spin) * off * 0.8;
 
