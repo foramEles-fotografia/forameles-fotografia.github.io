@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://forameles-fotografia.github.io/sitemap.xml
+Sitemap: https://forameles.com.br/sitemap.xml
