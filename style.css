@@ -2167,7 +2167,7 @@ body {
   /* 6º Container: Card de Contato / WhatsApp no celular */
   .container-hero {
     min-height: 0;
-    padding: 6.4rem 1.25rem 1rem;
+    padding: calc(6.4rem + 24px) 1.25rem 1rem;
   }
 
   .hero-content {
@@ -2179,7 +2179,7 @@ body {
   }
 
   #destaque {
-    margin-top: 11svh;
+    margin-top: calc(11svh - 24px);
   }
 
   .contact-card {
