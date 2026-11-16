@@ -228,11 +228,11 @@
     const base = isMobile ? width * mobileScale : Math.min(width, viewH * 1.25) * pcScale;
     const radius = base * (1 + 0.08 * Math.sin(time * 0.0011));
 
-    // Força da cor (-5% no PC)
-    const basePC = 0.32;
-    const roamingAlpha = 0.37;
+    // Força da cor (-15% no 1º container de site.html)
+    const basePC = isBioPage ? 0.32 : 0.27;
+    const roamingAlpha = isBioPage ? 0.37 : 0.31;
     const pcAlpha = roamingAlpha + (basePC - roamingAlpha) * stain.influence;
-    const mobileAlpha = 0.28;
+    const mobileAlpha = isBioPage ? 0.28 : 0.24;
     const alpha = isMobile ? mobileAlpha : pcAlpha;
 
     // Dois lóbulos: mesmo movimento e forma da tela inicial de opções
