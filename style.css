@@ -2170,8 +2170,12 @@ body {
     padding: 5.2rem 1.25rem 1rem;
   }
 
+  .hero-content {
+    gap: 1.35rem;
+  }
+
   #destaque {
-    margin-top: 7svh;
+    margin-top: 11svh;
   }
 
   .contact-card {
