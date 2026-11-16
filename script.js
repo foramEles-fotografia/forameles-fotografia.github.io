@@ -659,7 +659,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ]
     },
     {
-      category: 'Odontologia & Estética',
+      category: 'Endodontia',
       title: 'Dra. Jéssica Cardoso',
       photos: [
         '/assets/albuns/jessica/jessica-3.jpg',
