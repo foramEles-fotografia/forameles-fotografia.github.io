@@ -2507,16 +2507,6 @@ body {
   line-height: 1.4;
 }
 
-.bio-btn-site {
-  padding: 1.18rem 1.35rem;
-  background: rgba(37, 99, 235, 0.06);
-  border-color: rgba(37, 99, 235, 0.38);
-}
-
-.bio-btn-site .bio-btn-text strong {
-  font-size: 1.08rem;
-}
-
 @media (max-width: 480px) {
   .bio-page {
     min-height: 100svh;
@@ -2552,16 +2542,6 @@ body {
     border-radius: 18px;
   }
 
-  .bio-btn-site {
-    padding: 1.1rem 1.2rem;
-    background: rgba(37, 99, 235, 0.06);
-    border-color: rgba(37, 99, 235, 0.36);
-  }
-
-  .bio-btn-site .bio-btn-text strong {
-    font-size: 1.06rem;
-  }
-
   .bio-btn-icon {
     width: 40px;
     height: 40px;
@@ -2578,5 +2558,48 @@ body {
 
   .bio-footer {
     font-size: 0.75rem;
+  }
+}
+
+/* Selo flutuante de avaliações 5 estrelas no Google (canto inferior direito) */
+.google-review-float {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.62rem 0.95rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1);
+  color: #0f172a;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.google-review-float:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.15);
+}
+
+.google-review-stars {
+  color: #f59e0b;
+  letter-spacing: 0.02em;
+  font-size: 0.88rem;
+}
+
+@media (max-width: 640px) {
+  .google-review-float {
+    right: 0.85rem;
+    bottom: 0.85rem;
+    padding: 0.52rem 0.82rem;
+    font-size: 0.78rem;
   }
 }
