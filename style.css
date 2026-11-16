@@ -2171,7 +2171,7 @@ body {
   }
 
   .hero-content {
-    gap: 2.1rem;
+    gap: 1.65rem;
   }
 
   .hero-logo {
@@ -2179,7 +2179,7 @@ body {
   }
 
   #destaque {
-    margin-top: calc(11svh - 24px);
+    margin-top: calc(6svh - 24px);
   }
 
   .contact-card {
