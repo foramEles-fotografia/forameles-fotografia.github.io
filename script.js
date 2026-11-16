@@ -84,7 +84,7 @@
   // - Ocupa só um pedaço da tela e se desfaz em degradê até o fundo branco.
   // - Cores vizinhas no círculo cromático (nunca opostas) = sem tons sujos.
   // ==========================================================================
-  const colorRing = isBioPage ? [
+  const colorRing = [
     { r: 37,  g: 99,  b: 235 }, // Azul Oficial do Ponto (#2563EB)
     { r: 29,  g: 78,  b: 216 }, // Azul Cobalto Profundo (#1D4ED8)
     { r: 59,  g: 130, b: 246 }, // Azul Vivo (#3B82F6)
@@ -93,13 +93,6 @@
     { r: 56,  g: 189, b: 248 }, // Azul Sky / Turquesa (#38BDF8)
     { r: 34,  g: 211, b: 238 }, // Ciano Claro (#22D3EE)
     { r: 14,  g: 165, b: 233 }  // Azul Oceano (#0EA5E9)
-  ] : [
-    { r: 29,  g: 78,  b: 216 }, // Azul Cobalto (#1D4ED8)
-    { r: 56,  g: 189, b: 248 }, // Azul Sky (#38BDF8)
-    { r: 6,   g: 182, b: 212 }, // Ciano Turquesa (#06B6D4)
-    { r: 79,  g: 70,  b: 229 }, // Índigo Suave (#4F46E5)
-    { r: 37,  g: 99,  b: 235 }, // Azul Royal (#2563EB)
-    { r: 96,  g: 165, b: 250 }  // Azul Celeste (#60A5FA)
   ];
 
   function ringColor(pos) {
@@ -220,56 +213,35 @@
       stain.y = goalY;
       stain.placed = true;
     }
-    const follow = 0.025 + (isBioPage ? 0.07 : 0.025) * stain.influence;
+    const follow = 0.035 + 0.075 * stain.influence;
     stain.x += (goalX - stain.x) * follow;
     stain.y += (goalY - stain.y) * follow;
 
-    // Cores: transição contínua mais perceptível entre tons distintos
-    stain.colorPos += dt * (0.0011 + 0.0042 * stain.mouseEnergy);
+    // Cores: sempre duas tonalidades distintas de azul (+3.0 no anel cromático)
+    stain.colorPos += dt * (0.00065 + 0.0038 * stain.mouseEnergy);
     const c1 = ringColor(stain.colorPos);
-    const c2 = ringColor(stain.colorPos + 2.2);
-    const c3 = ringColor(stain.colorPos + 4.1);
+    const c2 = ringColor(stain.colorPos + 3.0);
 
-    // Tamanho e espalhamento (no mobile do site, bem mais compacto)
-    const mobileScale = isBioPage ? 0.38 : 0.24;
-    const pcScale = isBioPage ? 0.44 : 0.34;
+    // Tamanho e espalhamento (mesmo padrão da tela inicial de opções)
+    const mobileScale = 0.38;
+    const pcScale = 0.44;
     const base = isMobile ? width * mobileScale : Math.min(width, viewH * 1.25) * pcScale;
     const radius = base * (1 + 0.08 * Math.sin(time * 0.0011));
 
-    // Força da cor suavizada (-10% no PC do site)
-    const basePC = isBioPage ? 0.34 : 0.23;
-    const roamingAlpha = isBioPage ? 0.39 : 0.27;
+    // Força da cor (mesmo padrão da tela inicial de opções)
+    const basePC = 0.34;
+    const roamingAlpha = 0.39;
     const pcAlpha = roamingAlpha + (basePC - roamingAlpha) * stain.influence;
-    const mobileAlpha = isBioPage ? 0.28 : 0.26;
+    const mobileAlpha = 0.28;
     const alpha = isMobile ? mobileAlpha : pcAlpha;
 
-    // Lóbulos orgânicos assimétricos (sem forma redonda)
-    const spin = time * 0.0012 + stain.phaseX;
-    if (!isBioPage && !isMobile) {
-      const off1 = radius * 0.58;
-      const off2 = radius * 0.52;
-      drawSoftBlob(
-        stain.x + Math.cos(spin) * off1,
-        stain.y + Math.sin(spin * 0.8) * off1 * 0.65,
-        radius * 1.05, c1.r, c1.g, c1.b, alpha, 1.45, 0.72, spin * 0.4
-      );
-      drawSoftBlob(
-        stain.x - Math.cos(spin * 0.9 + 1.4) * off2,
-        stain.y + Math.sin(spin * 1.1 + 0.9) * off2 * 0.75,
-        radius * 0.92, c2.r, c2.g, c2.b, alpha * 0.9, 0.76, 1.38, -spin * 0.35
-      );
-      drawSoftBlob(
-        stain.x + Math.sin(spin * 0.7 + 2.6) * off1 * 0.85,
-        stain.y - Math.cos(spin * 0.85 + 1.9) * off2 * 0.7,
-        radius * 0.84, c3.r, c3.g, c3.b, alpha * 0.82, 1.28, 0.78, spin * 0.25 + 1.1
-      );
-    } else {
-      const off = radius * (isBioPage ? (isMobile ? 0.42 : 0.50) : 0.34);
-      const ox = Math.cos(spin) * off;
-      const oy = Math.sin(spin) * off * 0.8;
-      drawSoftBlob(stain.x - ox, stain.y - oy, radius, c1.r, c1.g, c1.b, alpha);
-      drawSoftBlob(stain.x + ox, stain.y + oy, radius, c2.r, c2.g, c2.b, alpha);
-    }
+    // Dois lóbulos: mesmo movimento e forma da tela inicial de opções
+    const spin = time * 0.00135 + stain.phaseX;
+    const off = radius * (isMobile ? 0.42 : 0.50);
+    const ox = Math.cos(spin) * off;
+    const oy = Math.sin(spin) * off * 0.8;
+    drawSoftBlob(stain.x - ox, stain.y - oy, radius, c1.r, c1.g, c1.b, alpha);
+    drawSoftBlob(stain.x + ox, stain.y + oy, radius, c2.r, c2.g, c2.b, alpha);
 
     rafId = requestAnimationFrame(animate);
   }
