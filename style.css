@@ -221,7 +221,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 9.2rem 1.75rem 1.4rem;
+  padding: 7.8rem 1.75rem 1.4rem;
   overflow: visible;
   background: transparent;
   z-index: 1;
@@ -412,7 +412,7 @@ body {
 }
 
 #destaque {
-  margin-top: -8vh;
+  margin-top: -10vh;
 }
 
 .video-sticky-stage {
@@ -1847,7 +1847,7 @@ body {
   }
 
   #destaque {
-  margin-top: -8vh;
+  margin-top: -10vh;
 }
 
 .video-sticky-stage {
