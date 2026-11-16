@@ -235,34 +235,26 @@
     const mobileAlpha = isBioPage ? 0.22 : 0.15;
     const alpha = isMobile ? mobileAlpha : pcAlpha;
 
-    // Formas mais abstratas no PC (3 lóbulos elípticos assimétricos); 2 lóbulos suaves no mobile
+    // 3 lóbulos imperfeitos quase sobrepostos (estilo diagrama de Venn, sem buraco branco no meio)
     const spin = time * 0.00135 + stain.phaseX;
-    if (!isMobile) {
-      const c3 = ringColor(stain.colorPos + 1.5);
-      const off1 = radius * 0.56;
-      const off2 = radius * 0.50;
-      drawSoftBlob(
-        stain.x + Math.cos(spin) * off1,
-        stain.y + Math.sin(spin * 0.8) * off1 * 0.65,
-        radius * 1.05, c1.r, c1.g, c1.b, alpha, 1.45, 0.72, spin * 0.4
-      );
-      drawSoftBlob(
-        stain.x - Math.cos(spin * 0.9 + 1.4) * off2,
-        stain.y + Math.sin(spin * 1.1 + 0.9) * off2 * 0.75,
-        radius * 0.92, c2.r, c2.g, c2.b, alpha * 0.9, 0.76, 1.38, -spin * 0.35
-      );
-      drawSoftBlob(
-        stain.x + Math.sin(spin * 0.7 + 2.6) * off1 * 0.85,
-        stain.y - Math.cos(spin * 0.85 + 1.9) * off2 * 0.7,
-        radius * 0.84, c3.r, c3.g, c3.b, alpha * 0.82, 1.28, 0.78, spin * 0.25 + 1.1
-      );
-    } else {
-      const off = radius * 0.42;
-      const ox = Math.cos(spin) * off;
-      const oy = Math.sin(spin) * off * 0.8;
-      drawSoftBlob(stain.x - ox, stain.y - oy, radius, c1.r, c1.g, c1.b, alpha);
-      drawSoftBlob(stain.x + ox, stain.y + oy, radius, c2.r, c2.g, c2.b, alpha);
-    }
+    const c3 = ringColor(stain.colorPos + 1.5);
+    const off1 = radius * 0.26;
+    const off2 = radius * 0.24;
+    drawSoftBlob(
+      stain.x + Math.cos(spin) * off1,
+      stain.y + Math.sin(spin * 0.8) * off1 * 0.75,
+      radius * 1.08, c1.r, c1.g, c1.b, alpha, 1.32, 0.80, spin * 0.35
+    );
+    drawSoftBlob(
+      stain.x - Math.cos(spin * 0.9 + 2.1) * off2,
+      stain.y + Math.sin(spin * 1.1 + 1.2) * off2 * 0.82,
+      radius * 0.98, c2.r, c2.g, c2.b, alpha * 0.92, 0.82, 1.28, -spin * 0.30
+    );
+    drawSoftBlob(
+      stain.x + Math.sin(spin * 0.7 + 4.2) * off1 * 0.9,
+      stain.y - Math.cos(spin * 0.85 + 2.8) * off2 * 0.85,
+      radius * 0.92, c3.r, c3.g, c3.b, alpha * 0.85, 1.22, 0.84, spin * 0.25 + 1.1
+    );
 
     rafId = requestAnimationFrame(animate);
   }
