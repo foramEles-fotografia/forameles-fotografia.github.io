@@ -220,7 +220,7 @@
       stain.y = goalY;
       stain.placed = true;
     }
-    const follow = 0.035 + 0.075 * stain.influence;
+    const follow = 0.025 + (isBioPage ? 0.07 : 0.025) * stain.influence;
     stain.x += (goalX - stain.x) * follow;
     stain.y += (goalY - stain.y) * follow;
 
@@ -236,9 +236,9 @@
     const base = isMobile ? width * mobileScale : Math.min(width, viewH * 1.25) * pcScale;
     const radius = base * (1 + 0.08 * Math.sin(time * 0.0011));
 
-    // Força da cor suavizada (no PC do site, bem mais leve)
-    const basePC = isBioPage ? 0.34 : 0.26;
-    const roamingAlpha = isBioPage ? 0.39 : 0.30;
+    // Força da cor suavizada (-10% no PC do site)
+    const basePC = isBioPage ? 0.34 : 0.23;
+    const roamingAlpha = isBioPage ? 0.39 : 0.27;
     const pcAlpha = roamingAlpha + (basePC - roamingAlpha) * stain.influence;
     const mobileAlpha = isBioPage ? 0.28 : 0.26;
     const alpha = isMobile ? mobileAlpha : pcAlpha;
