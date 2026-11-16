@@ -213,7 +213,7 @@
       stain.y = goalY;
       stain.placed = true;
     }
-    const follow = 0.035 + 0.075 * stain.influence;
+    const follow = 0.025 + 0.038 * stain.influence;
     stain.x += (goalX - stain.x) * follow;
     stain.y += (goalY - stain.y) * follow;
 
@@ -228,9 +228,9 @@
     const base = isMobile ? width * mobileScale : Math.min(width, viewH * 1.25) * pcScale;
     const radius = base * (1 + 0.08 * Math.sin(time * 0.0011));
 
-    // Força da cor (mesmo padrão da tela inicial de opções)
-    const basePC = 0.34;
-    const roamingAlpha = 0.39;
+    // Força da cor (-5% no PC)
+    const basePC = 0.32;
+    const roamingAlpha = 0.37;
     const pcAlpha = roamingAlpha + (basePC - roamingAlpha) * stain.influence;
     const mobileAlpha = 0.28;
     const alpha = isMobile ? mobileAlpha : pcAlpha;

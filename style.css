@@ -2160,42 +2160,44 @@ body {
 
   /* 6º Container: Card de Contato / WhatsApp no celular */
   .contact-card {
-    padding: 2.2rem 1.35rem;
+    padding: 1.65rem 1.35rem 2.2rem;
     border-radius: 22px;
-    gap: 1.6rem;
+    gap: 1.5rem;
   }
 
   .contact-copy .section-title {
     font-size: 1.65rem;
-    margin-bottom: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 1.3rem;
   }
 
   .inline-logo-contact {
-    height: 2.35rem;
-    margin-top: 0.85rem;
+    height: 2.75rem;
+    margin-top: 0.9rem;
+    margin-bottom: 1.25rem;
   }
 
   .contact-copy .section-desc {
     font-size: 1.02rem;
+    margin-top: 0.25rem;
   }
 
   .contact-buttons-panel {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
+    flex-direction: column;
+    align-items: stretch;
     justify-content: center;
-    gap: 0.75rem;
+    gap: 0.85rem;
     width: 100%;
     max-width: 100%;
     margin-left: 0;
   }
 
   .btn-brand {
-    flex: 1 1 145px;
-    width: auto;
-    padding: 0.95rem 1.5rem;
-    font-size: 1.04rem;
+    flex: none;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1.06rem;
     gap: 0.65rem;
   }
 
@@ -2508,15 +2510,23 @@ body {
 
 @media (max-width: 480px) {
   .bio-page {
-    padding: 1.75rem 1.1rem;
+    min-height: 100svh;
+    padding: 3rem 1.1rem 1.5rem;
+    align-items: stretch;
   }
 
   .bio-container {
-    gap: 1.85rem;
+    min-height: calc(100svh - 4.5rem);
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .bio-header {
+    gap: 0.45rem;
   }
 
   .bio-logo {
-    height: 52px;
+    height: 68px;
   }
 
   .bio-subtitle {
@@ -2524,6 +2534,7 @@ body {
   }
 
   .bio-links {
+    margin: auto 0;
     gap: 1.2rem;
   }
 
