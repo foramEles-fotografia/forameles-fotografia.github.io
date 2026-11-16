@@ -228,9 +228,9 @@
     const base = isMobile ? width * mobileScale : Math.min(width, viewH * 1.25) * pcScale;
     const radius = base * (1 + 0.08 * Math.sin(time * 0.0011));
 
-    // Força da cor (-5% no PC, +10% no mobile)
-    const basePC = isBioPage ? 0.22 : 0.15;
-    const roamingAlpha = isBioPage ? 0.25 : 0.17;
+    // Força da cor (-12% no PC do 1º container de site.html)
+    const basePC = isBioPage ? 0.22 : 0.13;
+    const roamingAlpha = isBioPage ? 0.25 : 0.15;
     const pcAlpha = roamingAlpha + (basePC - roamingAlpha) * stain.influence;
     const mobileAlpha = isBioPage ? 0.22 : 0.15;
     const alpha = isMobile ? mobileAlpha : pcAlpha;
