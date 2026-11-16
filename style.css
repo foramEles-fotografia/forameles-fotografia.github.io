@@ -412,6 +412,10 @@ body {
   z-index: 5;
 }
 
+#destaque {
+  margin-top: -12vh;
+}
+
 .video-sticky-stage {
   position: sticky;
   top: 0;
@@ -1843,7 +1847,11 @@ body {
     margin-top: 0;
   }
 
-  .video-sticky-stage {
+  #destaque {
+  margin-top: -12vh;
+}
+
+.video-sticky-stage {
     height: 100vh;
     height: 100dvh;
     height: 100svh;
@@ -2161,6 +2169,10 @@ body {
   .container-hero {
     min-height: 54svh;
     padding: 5.5rem 1.25rem 1.75rem;
+  }
+
+  #destaque {
+    margin-top: -10svh;
   }
 
   .contact-card {
