@@ -428,7 +428,7 @@
     videoEl.muted = true;
     videoEl.removeAttribute('autoplay');
     if (window.matchMedia('(max-width: 768px)').matches) {
-      videoEl.setAttribute('poster', 'assets/video-poster-mobile.jpg');
+      videoEl.setAttribute('poster', '/assets/video-poster-mobile.jpg');
     }
 
     const isMobileDevice = window.matchMedia('(max-width: 768px)').matches;
@@ -635,70 +635,70 @@ document.addEventListener('DOMContentLoaded', () => {
       category: 'Harmonização Orofacial',
       title: 'Dra. Joyce Menezes',
       photos: [
-        'assets/albuns/joyce/foto-06.jpg',
-        'assets/albuns/joyce/foto-01.jpg',
-        'assets/albuns/joyce/foto-02.jpg',
-        'assets/albuns/joyce/foto-03.jpg',
-        'assets/albuns/joyce/foto-04.jpg',
-        'assets/albuns/joyce/foto-05.jpg',
-        'assets/albuns/joyce/foto-07.jpg',
-        'assets/albuns/joyce/foto-08.jpg',
-        'assets/albuns/joyce/foto-09.jpg',
-        'assets/albuns/joyce/foto-10.jpg',
-        'assets/albuns/joyce/foto-11.jpg'
+        '/assets/albuns/joyce/foto-06.jpg',
+        '/assets/albuns/joyce/foto-01.jpg',
+        '/assets/albuns/joyce/foto-02.jpg',
+        '/assets/albuns/joyce/foto-03.jpg',
+        '/assets/albuns/joyce/foto-04.jpg',
+        '/assets/albuns/joyce/foto-05.jpg',
+        '/assets/albuns/joyce/foto-07.jpg',
+        '/assets/albuns/joyce/foto-08.jpg',
+        '/assets/albuns/joyce/foto-09.jpg',
+        '/assets/albuns/joyce/foto-10.jpg',
+        '/assets/albuns/joyce/foto-11.jpg'
       ]
     },
     {
       category: 'Invisalign Doctor',
       title: 'Dra. Izabela Freitas',
       photos: [
-        'assets/albuns/izabela/foto-01.jpg',
-        'assets/albuns/izabela/foto-02.jpg',
-        'assets/albuns/izabela/foto-03.jpg',
-        'assets/albuns/izabela/foto-04.jpg'
+        '/assets/albuns/izabela/foto-01.jpg',
+        '/assets/albuns/izabela/foto-02.jpg',
+        '/assets/albuns/izabela/foto-03.jpg',
+        '/assets/albuns/izabela/foto-04.jpg'
       ]
     },
     {
       category: 'Odontologia & Estética',
       title: 'Dra. Jéssica Cardoso',
       photos: [
-        'assets/albuns/jessica/jessica-3.jpg',
-        'assets/albuns/jessica/foto-01.jpg',
-        'assets/albuns/jessica/foto-02.jpg'
+        '/assets/albuns/jessica/jessica-3.jpg',
+        '/assets/albuns/jessica/foto-01.jpg',
+        '/assets/albuns/jessica/foto-02.jpg'
       ]
     },
     {
       category: 'Retratos & Atendimento',
       title: 'Profissionais',
       photos: [
-        'assets/albuns/profissionais/foto-01.jpg',
-        'assets/albuns/profissionais/foto-02.jpg',
-        'assets/albuns/profissionais/foto-03.jpg',
-        'assets/albuns/profissionais/foto-04.jpg'
+        '/assets/albuns/profissionais/foto-01.jpg',
+        '/assets/albuns/profissionais/foto-02.jpg',
+        '/assets/albuns/profissionais/foto-03.jpg',
+        '/assets/albuns/profissionais/foto-04.jpg'
       ]
     },
     {
       category: 'Estrutura, Espaços & Equipe',
       title: 'Institucional',
       photos: [
-        'assets/albuns/institucional/foto-02.jpg',
-        'assets/albuns/institucional/foto-01.jpg',
-        'assets/albuns/institucional/foto-03.jpg',
-        'assets/albuns/institucional/foto-04.jpg'
+        '/assets/albuns/institucional/foto-02.jpg',
+        '/assets/albuns/institucional/foto-01.jpg',
+        '/assets/albuns/institucional/foto-03.jpg',
+        '/assets/albuns/institucional/foto-04.jpg'
       ]
     },
     {
       category: 'Texturas, Produtos & Essência',
       title: 'Branding & Detalhes',
       photos: [
-        'assets/albuns/branding/foto-08.jpg',
-        'assets/albuns/branding/foto-01.jpg',
-        'assets/albuns/branding/foto-02.jpg',
-        'assets/albuns/branding/foto-03.jpg',
-        'assets/albuns/branding/foto-04.jpg',
-        'assets/albuns/branding/foto-05.jpg',
-        'assets/albuns/branding/foto-06.jpg',
-        'assets/albuns/branding/foto-07.jpg'
+        '/assets/albuns/branding/foto-08.jpg',
+        '/assets/albuns/branding/foto-01.jpg',
+        '/assets/albuns/branding/foto-02.jpg',
+        '/assets/albuns/branding/foto-03.jpg',
+        '/assets/albuns/branding/foto-04.jpg',
+        '/assets/albuns/branding/foto-05.jpg',
+        '/assets/albuns/branding/foto-06.jpg',
+        '/assets/albuns/branding/foto-07.jpg'
       ]
     }
   ];
