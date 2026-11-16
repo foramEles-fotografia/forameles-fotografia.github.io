@@ -282,16 +282,6 @@
   } else {
     rafId = requestAnimationFrame(animate);
   }
-  // Selo dinâmico de avaliações no Google: abre expandido, recolhe após 5s e reabre a cada 5 min
-  const googleBadge = document.getElementById('google-review-float');
-  if (googleBadge) {
-    const collapseBadge = () => googleBadge.classList.remove('is-expanded');
-    setTimeout(collapseBadge, 5000);
-    setInterval(() => {
-      googleBadge.classList.add('is-expanded');
-      setTimeout(collapseBadge, 6000);
-    }, 300000);
-  }
 })();
 
 /* ==========================================================================
@@ -429,16 +419,6 @@
     isContactVisible = true;
     contactRafId = requestAnimationFrame(animateContact);
   }
-  // Selo dinâmico de avaliações no Google: abre expandido, recolhe após 5s e reabre a cada 5 min
-  const googleBadge = document.getElementById('google-review-float');
-  if (googleBadge) {
-    const collapseBadge = () => googleBadge.classList.remove('is-expanded');
-    setTimeout(collapseBadge, 5000);
-    setInterval(() => {
-      googleBadge.classList.add('is-expanded');
-      setTimeout(collapseBadge, 6000);
-    }, 300000);
-  }
 })();
 
 /* ==========================================================================
@@ -572,16 +552,6 @@
   window.addEventListener('resize', measureTrackMetrics, { passive: true });
   window.addEventListener('load', measureTrackMetrics);
   measureTrackMetrics();
-  // Selo dinâmico de avaliações no Google: abre expandido, recolhe após 5s e reabre a cada 5 min
-  const googleBadge = document.getElementById('google-review-float');
-  if (googleBadge) {
-    const collapseBadge = () => googleBadge.classList.remove('is-expanded');
-    setTimeout(collapseBadge, 5000);
-    setInterval(() => {
-      googleBadge.classList.add('is-expanded');
-      setTimeout(collapseBadge, 6000);
-    }, 300000);
-  }
 })();
 
 /* ==========================================================================
@@ -953,3 +923,15 @@ function initCookieConsent() {
     }
   });
 }
+
+// Selo dinâmico de avaliações no Google: abre expandido, recolhe após 5s e reabre a cada 5 min
+(function () {
+  const googleBadge = document.getElementById('google-review-float');
+  if (!googleBadge) return;
+  const collapseBadge = () => googleBadge.classList.remove('is-expanded');
+  setTimeout(collapseBadge, 5000);
+  setInterval(() => {
+    googleBadge.classList.add('is-expanded');
+    setTimeout(collapseBadge, 6000);
+  }, 300000);
+})();
