@@ -221,7 +221,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6.2rem 1.75rem 1.2rem;
+  padding: 9.2rem 1.75rem 1.4rem;
   overflow: visible;
   background: transparent;
   z-index: 1;
@@ -412,7 +412,7 @@ body {
 }
 
 #destaque {
-  margin-top: -12vh;
+  margin-top: -6vh;
 }
 
 .video-sticky-stage {
@@ -1847,7 +1847,7 @@ body {
   }
 
   #destaque {
-  margin-top: -12vh;
+  margin-top: -6vh;
 }
 
 .video-sticky-stage {
@@ -2171,7 +2171,7 @@ body {
   }
 
   #destaque {
-    margin-top: -9svh;
+    margin-top: -5svh;
   }
 
   .contact-card {
