@@ -2592,7 +2592,21 @@ body {
 .google-review-stars {
   color: #f59e0b;
   letter-spacing: 0.02em;
-  font-size: 0.88rem;
+  font-size: 0.92rem;
+}
+
+.google-review-cta {
+  display: inline-block;
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: max-width 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
+}
+
+.google-review-float.is-expanded .google-review-cta {
+  max-width: 170px;
+  opacity: 1;
 }
 
 @media (max-width: 640px) {

@@ -228,11 +228,11 @@
     const base = isMobile ? width * mobileScale : Math.min(width, viewH * 1.25) * pcScale;
     const radius = base * (1 + 0.08 * Math.sin(time * 0.0011));
 
-    // Força da cor (-15% na tela inicial de opções e no 1º container de site.html)
-    const basePC = isBioPage ? 0.27 : 0.19;
-    const roamingAlpha = isBioPage ? 0.31 : 0.21;
+    // Força da cor (-15% adicional na tela inicial e no 1º container de site.html)
+    const basePC = isBioPage ? 0.23 : 0.16;
+    const roamingAlpha = isBioPage ? 0.26 : 0.18;
     const pcAlpha = roamingAlpha + (basePC - roamingAlpha) * stain.influence;
-    const mobileAlpha = isBioPage ? 0.24 : 0.16;
+    const mobileAlpha = isBioPage ? 0.20 : 0.14;
     const alpha = isMobile ? mobileAlpha : pcAlpha;
 
     // Dois lóbulos: mesmo movimento e forma da tela inicial de opções
@@ -260,6 +260,16 @@
     heroObs.observe(canvas.parentElement);
   } else {
     rafId = requestAnimationFrame(animate);
+  }
+  // Selo dinâmico de avaliações no Google: abre expandido, recolhe após 5s e reabre a cada 5 min
+  const googleBadge = document.getElementById('google-review-float');
+  if (googleBadge) {
+    const collapseBadge = () => googleBadge.classList.remove('is-expanded');
+    setTimeout(collapseBadge, 5000);
+    setInterval(() => {
+      googleBadge.classList.add('is-expanded');
+      setTimeout(collapseBadge, 6000);
+    }, 300000);
   }
 })();
 
@@ -398,6 +408,16 @@
     isContactVisible = true;
     contactRafId = requestAnimationFrame(animateContact);
   }
+  // Selo dinâmico de avaliações no Google: abre expandido, recolhe após 5s e reabre a cada 5 min
+  const googleBadge = document.getElementById('google-review-float');
+  if (googleBadge) {
+    const collapseBadge = () => googleBadge.classList.remove('is-expanded');
+    setTimeout(collapseBadge, 5000);
+    setInterval(() => {
+      googleBadge.classList.add('is-expanded');
+      setTimeout(collapseBadge, 6000);
+    }, 300000);
+  }
 })();
 
 /* ==========================================================================
@@ -531,6 +551,16 @@
   window.addEventListener('resize', measureTrackMetrics, { passive: true });
   window.addEventListener('load', measureTrackMetrics);
   measureTrackMetrics();
+  // Selo dinâmico de avaliações no Google: abre expandido, recolhe após 5s e reabre a cada 5 min
+  const googleBadge = document.getElementById('google-review-float');
+  if (googleBadge) {
+    const collapseBadge = () => googleBadge.classList.remove('is-expanded');
+    setTimeout(collapseBadge, 5000);
+    setInterval(() => {
+      googleBadge.classList.add('is-expanded');
+      setTimeout(collapseBadge, 6000);
+    }, 300000);
+  }
 })();
 
 /* ==========================================================================
