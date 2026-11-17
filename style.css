@@ -2535,8 +2535,8 @@ body {
 .bio-btn-site-card {
   flex-direction: column;
   align-items: stretch;
-  gap: 1rem;
-  padding: 1.2rem 1.2rem 1.25rem;
+  gap: 1.05rem;
+  padding: 1.3rem 1.25rem 1.35rem;
 }
 
 .bio-site-card-top {
@@ -2554,7 +2554,7 @@ body {
 }
 
 .bio-preview-thumb {
-  height: 98px;
+  height: 122px;
   border-radius: 10px;
   overflow: hidden;
   background: rgba(15, 23, 42, 0.05);
@@ -2591,7 +2591,7 @@ body {
   }
 
   .bio-logo {
-    height: 68px;
+    height: 54px;
   }
 
   .bio-subtitle {
