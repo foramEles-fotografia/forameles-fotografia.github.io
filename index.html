@@ -52,24 +52,31 @@
 
       <!-- Botões Rápidos Estilo Trackto (Ordem: Site em destaque -> WhatsApp -> Instagram) -->
       <nav class="bio-links" aria-label="Links principais">
-        <!-- 1. Site (Botão principal em destaque) -->
-        <a href="/site" target="_blank" rel="noopener noreferrer" class="bio-link-btn bio-btn-site">
-          <span class="bio-btn-icon" aria-hidden="true">
-            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="2" y1="12" x2="22" y2="12"></line>
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-            </svg>
-          </span>
-          <span class="bio-btn-text">
-            <strong>Site</strong>
-            <small>Portfólio completo e apresentação</small>
-          </span>
-          <span class="bio-btn-arrow" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </span>
+        <!-- 1. Site (Card maior com prévia visual do portfólio) -->
+        <a href="/site" target="_blank" rel="noopener noreferrer" class="bio-link-btn bio-btn-site-card">
+          <div class="bio-site-card-top">
+            <span class="bio-btn-icon" aria-hidden="true">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </span>
+            <span class="bio-btn-text">
+              <strong>Site Oficial</strong>
+              <small>Portfólio completo, serviços e apresentação</small>
+            </span>
+            <span class="bio-btn-arrow" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </span>
+          </div>
+          <div class="bio-site-preview" aria-hidden="true">
+            <div class="bio-preview-thumb"><img src="/assets/albuns/joyce/foto-06.jpg" alt="" loading="lazy" decoding="async" /></div>
+            <div class="bio-preview-thumb"><img src="/assets/albuns/institucional/foto-02.jpg" alt="" loading="lazy" decoding="async" /></div>
+            <div class="bio-preview-thumb"><img src="/assets/albuns/branding/foto-08.jpg" alt="" loading="lazy" decoding="async" /></div>
+          </div>
         </a>
 
         <!-- 2. WhatsApp -->
@@ -133,6 +140,6 @@
     </div>
   </main>
 
-  <script src="script.js?v=20261116-v58" defer></script>
+  <script src="script.js?v=20261117-v59" defer></script>
 </body>
 </html>

@@ -2531,6 +2531,47 @@ body {
   line-height: 1.4;
 }
 
+/* Card de prévia do Site na página inicial */
+.bio-btn-site-card {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.85rem;
+  padding: 1.05rem 1.15rem 1.1rem;
+}
+
+.bio-site-card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.95rem;
+  width: 100%;
+}
+
+.bio-site-preview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.bio-preview-thumb {
+  height: 74px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(15, 23, 42, 0.05);
+}
+
+.bio-preview-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.bio-btn-site-card:hover .bio-preview-thumb img {
+  transform: scale(1.05);
+}
+
 @media (max-width: 480px) {
   .bio-page {
     min-height: 100svh;
