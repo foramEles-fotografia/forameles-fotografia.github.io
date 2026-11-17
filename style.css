@@ -2431,7 +2431,7 @@ body {
   color: var(--slate-800);
   border: 1.5px solid #2563EB;
   box-shadow: 0 8px 24px -6px rgba(37, 99, 235, 0.14);
-  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.22s ease, border-color 0.22s ease, color 0.22s ease;
+  transition: transform 0.48s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.48s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.42s ease, border-color 0.42s ease, color 0.42s ease;
   cursor: pointer;
 }
 
