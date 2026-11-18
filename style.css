@@ -2174,6 +2174,15 @@ body {
     gap: 1.65rem;
   }
 
+  .hero-sub-desc {
+    hyphens: none;
+    -webkit-hyphens: none;
+    word-break: normal;
+    overflow-wrap: break-word;
+    text-wrap: pretty;
+    padding-inline: 0.25rem;
+  }
+
   .hero-logo {
     transform: scale(1.03);
   }
